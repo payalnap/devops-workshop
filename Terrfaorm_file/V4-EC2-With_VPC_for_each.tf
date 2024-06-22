@@ -21,6 +21,13 @@ resource "aws_security_group" "demo-sg" {
   description = "SSH group"
   vpc_id = aws_vpc.dpp-vpc.id
 
+  ingress {
+    description      = "ssh access"
+    from_port        = 8080
+    to_port          = 8080
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
 
   ingress {
     description      = "ssh access"
